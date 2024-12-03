@@ -1,0 +1,1316 @@
+type: panel
+path: media
+title: Media
+cards:
+  - type: picture-elements
+    image: /local/images/transparent-image.png
+    card_mod:
+      style: |
+        ha-card {
+          height: 800px !important;   
+          box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); 
+          position: relative;
+          margin-top: 0px !important;
+          border-radius: 0px !important;
+        }
+    elements:
+      - type: custom:mini-media-player
+        entity: media_player.kitchen_2
+        artwork: full-cover-fit
+        tap_action: none
+        hide:
+          icon: true
+          power: true
+          source: true
+          sound_mode: true
+          controls: true
+          volume: true
+          group: true
+          info: true
+          name: true
+          runtime: true
+          runtime_remaining: true
+          progress: true
+        style:
+          top: 50%
+          left: 50%
+          width: 102%
+          height: 102%
+          opacity: 0.7
+          filter: blur(10px) 
+          transform: translate(-50%, -50%)
+          z-index: 1
+      - type: conditional
+        conditions:
+          - entity: input_select.music_assistant_menu
+            state: Default
+          - entity: input_boolean.show_player_selector
+            state: "off"
+        elements:
+          - type: custom:mini-media-player
+            entity: media_player.kitchen_2
+            artwork: full-cover
+            tap_action: none
+            hide:
+              name: true
+              icon: true
+              info: true
+              power: true
+              source: true
+              sound_mode: true
+              group_button: true
+              controls: true
+              prev: true
+              next: true
+              play_pause: true
+              play_stop: true
+              jump: true
+              volume: true
+              volume_level: true
+              mute: true
+              progress: true
+              runtime: true
+              runtime_remaining: true
+              artwork_border: true
+              power_state: true
+              icon_state: true
+              shuffle: true
+              repeat: true
+              state_label: true
+            card_mod:
+              style: |
+                ha-card {
+                  height: 100%;
+                  width: 100%;
+                  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+                  border-radius: 15px;
+                  overflow: hidden !important;
+                  background: none !important; 
+                }
+                .mmp-player__adds {
+                  display: none !important;
+                }
+                .mmp-player {
+                  background: none !important; 
+                }
+                .mmp-player__adds,
+                .mmp-player__core {
+                  display: none !important;
+                }
+            style:
+              top: 32%
+              left: 25%
+              width: 40%
+              height: 40%
+              transform: translate(-50%, -50%);
+              border-radius: 15px;
+              box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+              z-index: 1
+      - type: conditional
+        conditions:
+          - entity: input_select.music_assistant_menu
+            state: Default
+          - entity: input_boolean.show_player_selector
+            state: "on"
+        elements:
+          - type: custom:mini-media-player
+            entity: media_player.kitchen_2
+            artwork: full-cover
+            tap_action: none
+            hide:
+              name: true
+              icon: true
+              info: true
+              power: true
+              source: true
+              sound_mode: true
+              group_button: true
+              controls: true
+              prev: true
+              next: true
+              play_pause: true
+              play_stop: true
+              jump: true
+              volume: true
+              volume_level: true
+              mute: true
+              progress: true
+              runtime: true
+              runtime_remaining: true
+              artwork_border: true
+              power_state: true
+              icon_state: true
+              shuffle: true
+              repeat: true
+              state_label: true
+            card_mod:
+              style: |
+                ha-card {
+                  height: 100%;
+                  width: 100%;
+                  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+                  border-radius: 15px;
+                  overflow: hidden !important;
+                  background: none !important;
+                }
+                .mmp-player__adds {
+                  display: none !important;
+                }
+                .mmp-player {
+                  background: none !important;
+                }
+                .mmp-player__adds,
+                .mmp-player__core {
+                  display: none !important;
+                }
+            style:
+              top: 32%
+              left: 38%
+              width: 40%
+              height: 40%
+              transform: translate(-50%, -50%);
+              z-index: 2
+      - type: conditional
+        conditions:
+          - entity: media_player.kitchen_2
+            state: "off"
+        elements:
+          - type: image
+            image: /local/images/media_placeholder/media_placeholder.jpeg
+            style:
+              top: 50%
+              left: 50%
+              width: 130vw
+              height: 130vh
+              transform: translate(-50%, -50%)
+              z-index: 3
+      - type: conditional
+        conditions:
+          - entity: input_select.music_assistant_menu
+            state: Search
+        elements:
+          - type: custom:hui-element
+            card_type: iframe
+            url: https://ma.home/#/search
+            style:
+              top: 32%
+              left: 38%
+              width: 40%
+              height: 40%
+              transform: translate(-50%, -50%)
+              border-radius: 10px
+              box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5)
+              z-index: 2
+            card_mod:
+              style: |
+                ha-card {
+                  height: 40%
+                  with: 40%
+                  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+                  border-radius: 10px;
+                }
+      - type: conditional
+        conditions:
+          - entity: input_select.music_assistant_menu
+            state: Playlists
+        elements:
+          - type: custom:hui-element
+            card_type: iframe
+            url: https://ma.home/#/playlists
+            style:
+              top: 32%
+              left: 38%
+              width: 40%
+              height: 40%
+              transform: translate(-50%, -50%)
+              border-radius: 10px
+              box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5)
+              z-index: 2
+            card_mod:
+              style: |
+                ha-card {
+                  height: 40%
+                  with: 40%
+                  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+                  border-radius: 10px;
+                }
+      - type: conditional
+        conditions:
+          - entity: input_select.music_assistant_menu
+            state: Albums
+        elements:
+          - type: custom:hui-element
+            card_type: iframe
+            url: https://ma.home/#/albums
+            style:
+              top: 32%
+              left: 38%
+              width: 40%
+              height: 40%
+              transform: translate(-50%, -50%)
+              border-radius: 10px
+              box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5)
+              z-index: 2
+            card_mod:
+              style: |
+                ha-card {
+                  height: 40%
+                  with: 40%
+                  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+                  border-radius: 10px;
+                }
+      - type: conditional
+        conditions:
+          - entity: input_select.music_assistant_menu
+            state: Artists
+        elements:
+          - type: custom:hui-element
+            card_type: iframe
+            url: https://ma.home/#/artists
+            style:
+              top: 32%
+              left: 38%
+              width: 40%
+              height: 40%
+              transform: translate(-50%, -50%)
+              border-radius: 10px
+              box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5)
+              z-index: 2
+            card_mod:
+              style: |
+                ha-card {
+                  height: 40%
+                  with: 40%
+                  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+                  border-radius: 10px;
+                }
+      - type: conditional
+        conditions:
+          - entity: input_select.music_assistant_menu
+            state: Tracks
+        elements:
+          - type: custom:hui-element
+            card_type: iframe
+            url: https://ma.home/#/tracks
+            style:
+              top: 32%
+              left: 38%
+              width: 40%
+              height: 40%
+              transform: translate(-50%, -50%)
+              border-radius: 10px
+              box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5)
+              z-index: 2
+            card_mod:
+              style: |
+                ha-card {
+                  height: 40%
+                  with: 40%
+                  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+                  border-radius: 10px;
+                }
+      - type: conditional
+        conditions:
+          - entity: sensor.ui_movement_state
+            state: move_left
+        elements:
+          - type: custom:hui-element
+            card_type: vertical-stack
+            style:
+              top: 18.2%
+              left: 70%
+              z-index: 2
+            cards:
+              - type: custom:button-card
+                name: >
+                  [[[ return
+                  states['media_player.kitchen_2'].attributes.media_title || "";
+                  ]]]
+                styles:
+                  card:
+                    - width: 400px
+                    - height: 70px
+                    - background: none
+                    - box-shadow: none
+                    - overflow: hidden
+                    - position: relative
+                    - border-radius: 0px
+                    - mask-image: |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_title || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "500 40px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth
+                            ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                            : "none";
+                        ]]]
+                    - "-webkit-mask-image": |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_title || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "500 40px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth
+                            ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                            : "none";
+                        ]]]
+                  name:
+                    - font-size: 40px
+                    - font: encode_sans
+                    - font-weight: 500
+                    - color: white
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - white-space: nowrap
+                    - overflow: hidden
+                    - text-overflow: ellipsis
+                    - position: absolute
+                    - width: calc(100% - 10px)
+                    - text-align: left
+                    - padding-left: 0px
+                    - animation: |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_title || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "500 40px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth ? "scroll-left 30s linear infinite" : "none";
+                        ]]]
+                card_mod:
+                  style: |
+                    @keyframes scroll-left {
+                      0% {
+                        transform: translateX(10px); 
+                      }
+                      100% {
+                        transform: translateX(calc(-100% + 10px)); 
+                      }
+                    }
+              - type: custom:button-card
+                name: >
+                  [[[ return
+                  states['media_player.kitchen_2'].attributes.media_artist ||
+                  ""; ]]]
+                styles:
+                  card:
+                    - width: 400px
+                    - height: 50px
+                    - background: none
+                    - box-shadow: none
+                    - overflow: hidden
+                    - position: relative
+                    - border-radius: 0px
+                    - mask-image: |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_artist || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "400 28px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth
+                            ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                            : "none";
+                        ]]]
+                    - "-webkit-mask-image": |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_artist || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "400 28px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth
+                            ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                            : "none";
+                        ]]]
+                  name:
+                    - font-size: 28px
+                    - font: encode_sans
+                    - font-weight: 400
+                    - color: lightgray
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - white-space: nowrap
+                    - overflow: hidden
+                    - text-overflow: ellipsis
+                    - position: absolute
+                    - width: calc(100% - 10px)
+                    - text-align: left
+                    - padding-left: 0px
+                    - animation: |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_artist || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "400 28px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth ? "scroll-left 30s linear infinite" : "none";
+                        ]]]
+                card_mod:
+                  style: |
+                    @keyframes scroll-left {
+                      0% {
+                        transform: translateX(10px);
+                      }
+                      100% {
+                        transform: translateX(calc(-100% + 10px));
+                      }
+                    }
+              - type: conditional
+                conditions:
+                  - entity: media_player.kitchen_2
+                    attribute: media_album_name
+                    state_not: ""
+                card:
+                  type: custom:button-card
+                  name: >
+                    [[[ return
+                    states['media_player.kitchen_2'].attributes.media_album_name
+                    || ""; ]]]
+                  styles:
+                    card:
+                      - width: 400px
+                      - height: 50px
+                      - background: none
+                      - box-shadow: none
+                      - overflow: hidden
+                      - position: relative
+                      - border-radius: 0px
+                      - mask-image: |
+                          [[[
+                            const text = states['media_player.kitchen_2'].attributes.media_album_name || "";
+                            const cardWidth = 400;
+                            const context = document.createElement("canvas").getContext("2d");
+                            context.font = "400 22px Encode Sans";
+                            const textWidth = context.measureText(text).width;
+                            return textWidth > cardWidth
+                              ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                              : "none";
+                          ]]]
+                      - "-webkit-mask-image": |
+                          [[[
+                            const text = states['media_player.kitchen_2'].attributes.media_album_name || "";
+                            const cardWidth = 400;
+                            const context = document.createElement("canvas").getContext("2d");
+                            context.font = "400 22px Encode Sans";
+                            const textWidth = context.measureText(text).width;
+                            return textWidth > cardWidth
+                              ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                              : "none";
+                          ]]]
+                    name:
+                      - font-size: 22px
+                      - font: encode_sans
+                      - font-weight: 400
+                      - color: gray
+                      - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                      - white-space: nowrap
+                      - overflow: hidden
+                      - text-overflow: ellipsis
+                      - position: absolute
+                      - width: calc(100% - 10px)
+                      - text-align: left
+                      - padding-left: 0px
+                      - animation: |
+                          [[[
+                            const text = states['media_player.kitchen_2'].attributes.media_album_name || "";
+                            const cardWidth = 400;
+                            const context = document.createElement("canvas").getContext("2d");
+                            context.font = "400 22px Encode Sans";
+                            const textWidth = context.measureText(text).width;
+                            return textWidth > cardWidth ? "scroll-left
+                card_mod:
+                  style: |
+                    @keyframes scroll-left {
+                      0% {
+                        transform: translateX(10px); 
+                      }
+                      100% {
+                        transform: translateX(calc(-100% + 10px)); 
+                      }
+                    }                
+      - type: conditional
+        conditions:
+          - entity: sensor.ui_movement_state
+            state: move_right
+        elements:
+          - type: custom:hui-element
+            card_type: vertical-stack
+            style:
+              top: 18.2%
+              left: 82%
+              z-index: 2
+            cards:
+              - type: custom:button-card
+                name: >
+                  [[[ return
+                  states['media_player.kitchen_2'].attributes.media_title || "";
+                  ]]]
+                styles:
+                  card:
+                    - width: 400px
+                    - height: 70px
+                    - background: none
+                    - box-shadow: none
+                    - overflow: hidden
+                    - position: relative
+                    - border-radius: 0px
+                    - mask-image: |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_title || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "500 40px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth
+                            ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                            : "none";
+                        ]]]
+                    - "-webkit-mask-image": |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_title || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "500 40px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth
+                            ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                            : "none";
+                        ]]]
+                  name:
+                    - font-size: 40px
+                    - font: encode_sans
+                    - font-weight: 500
+                    - color: white
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - white-space: nowrap
+                    - overflow: hidden
+                    - text-overflow: ellipsis
+                    - position: absolute
+                    - width: calc(100% - 10px)
+                    - text-align: left
+                    - padding-left: 0px
+                    - animation: |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_title || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "500 40px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth ? "scroll-left 30s linear infinite" : "none";
+                        ]]]
+                card_mod:
+                  style: |
+                    @keyframes scroll-left {
+                      0% {
+                        transform: translateX(10px); /* Matches padding-left */
+                      }
+                      100% {
+                        transform: translateX(calc(-100% + 10px)); /* Ends with padding */
+                      }
+                    }
+              - type: custom:button-card
+                name: >
+                  [[[ return
+                  states['media_player.kitchen_2'].attributes.media_artist ||
+                  ""; ]]]
+                styles:
+                  card:
+                    - width: 400px
+                    - height: 50px
+                    - background: none
+                    - box-shadow: none
+                    - overflow: hidden
+                    - position: relative
+                    - border-radius: 0px
+                    - mask-image: |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_artist || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "400 28px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth
+                            ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                            : "none";
+                        ]]]
+                    - "-webkit-mask-image": |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_artist || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "400 28px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth
+                            ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                            : "none";
+                        ]]]
+                  name:
+                    - font-size: 28px
+                    - font: encode_sans
+                    - font-weight: 400
+                    - color: lightgray
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - white-space: nowrap
+                    - overflow: hidden
+                    - text-overflow: ellipsis
+                    - position: absolute
+                    - width: calc(100% - 10px)
+                    - text-align: left
+                    - padding-left: 0px
+                    - animation: |
+                        [[[
+                          const text = states['media_player.kitchen_2'].attributes.media_artist || "";
+                          const cardWidth = 400;
+                          const context = document.createElement("canvas").getContext("2d");
+                          context.font = "400 28px Encode Sans";
+                          const textWidth = context.measureText(text).width;
+                          return textWidth > cardWidth ? "scroll-left 30s linear infinite" : "none";
+                        ]]]
+                card_mod:
+                  style: |
+                    @keyframes scroll-left {
+                      0% {
+                        transform: translateX(10px); 
+                      }
+                      100% {
+                        transform: translateX(calc(-100% + 10px));
+                      }
+                    }
+              - type: conditional
+                conditions:
+                  - entity: media_player.kitchen_2
+                    attribute: media_album_name
+                    state_not: ""
+                card:
+                  type: custom:button-card
+                  name: >
+                    [[[ return
+                    states['media_player.kitchen_2'].attributes.media_album_name
+                    || ""; ]]]
+                  styles:
+                    card:
+                      - width: 400px
+                      - height: 50px
+                      - background: none
+                      - box-shadow: none
+                      - overflow: hidden
+                      - position: relative
+                      - border-radius: 0px
+                      - mask-image: |
+                          [[[
+                            const text = states['media_player.kitchen_2'].attributes.media_album_name || "";
+                            const cardWidth = 400;
+                            const context = document.createElement("canvas").getContext("2d");
+                            context.font = "400 22px Encode Sans";
+                            const textWidth = context.measureText(text).width;
+                            return textWidth > cardWidth
+                              ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                              : "none";
+                          ]]]
+                      - "-webkit-mask-image": |
+                          [[[
+                            const text = states['media_player.kitchen_2'].attributes.media_album_name || "";
+                            const cardWidth = 400;
+                            const context = document.createElement("canvas").getContext("2d");
+                            context.font = "400 22px Encode Sans";
+                            const textWidth = context.measureText(text).width;
+                            return textWidth > cardWidth
+                              ? "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 100%)"
+                              : "none";
+                          ]]]
+                    name:
+                      - font-size: 22px
+                      - font: encode_sans
+                      - font-weight: 400
+                      - color: gray
+                      - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                      - white-space: nowrap
+                      - overflow: hidden
+                      - text-overflow: ellipsis
+                      - position: absolute
+                      - width: calc(100% - 10px)
+                      - text-align: left
+                      - padding-left: 0px
+                      - animation: |
+                          [[[
+                            const text = states['media_player.kitchen_2'].attributes.media_album_name || "";
+                            const cardWidth = 400;
+                            const context = document.createElement("canvas").getContext("2d");
+                            context.font = "400 22px Encode Sans";
+                            const textWidth = context.measureText(text).width;
+                            return textWidth > cardWidth ? "scroll-left
+                card_mod:
+                  style: |
+                    @keyframes scroll-left {
+                      0% {
+                        transform: translateX(10px); /* Matches padding-left */
+                      }
+                      100% {
+                        transform: translateX(calc(-100% + 10px)); /* Ends with padding */
+                      }
+                    }
+      - type: custom:button-card
+        icon: mdi:power
+        tap_action:
+          action: call-service
+          service: media_player.toggle
+          service_data:
+            entity_id: media_player.kitchen_2
+        styles:
+          card:
+            - width: 70px
+            - height: 70px
+            - border-radius: 50%
+            - background: rgba(255, 255, 255, 0.1)
+            - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+          icon:
+            - color: white
+            - filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))
+        style:
+          top: 65%
+          left: 26.5%
+          z-index: 4
+      - type: custom:button-card
+        icon: mdi:skip-previous
+        tap_action:
+          action: call-service
+          service: media_player.media_previous_track
+          service_data:
+            entity_id: media_player.kitchen_2
+        styles:
+          card:
+            - width: 90px
+            - height: 90px
+            - border-radius: 50%
+            - background: rgba(255, 255, 255, 0.1)
+            - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+          icon:
+            - color: white
+            - filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))
+        style:
+          top: 65%
+          left: 37.5%
+          z-index: 2
+      - type: custom:button-card
+        entity: media_player.kitchen_2
+        show_entity_picture: false
+        show_name: false
+        icon: |
+          [[[ return states['media_player.kitchen_2'].state === 'playing' 
+              ? 'mdi:pause' 
+              : 'mdi:play'; ]]]
+        tap_action:
+          action: call-service
+          service: media_player.media_play_pause
+          service_data:
+            entity_id: media_player.kitchen_2
+        styles:
+          card:
+            - width: 110px
+            - height: 110px
+            - border-radius: 50%
+            - background: rgba(255, 255, 255, 0.1)
+            - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+          icon:
+            - color: white
+            - filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))
+        style:
+          top: 65%
+          left: 50%
+          z-index: 2
+      - type: custom:button-card
+        icon: mdi:skip-next
+        tap_action:
+          action: call-service
+          service: media_player.media_next_track
+          service_data:
+            entity_id: media_player.kitchen_2
+        styles:
+          card:
+            - width: 90px
+            - height: 90px
+            - border-radius: 50%
+            - background: rgba(255, 255, 255, 0.1)
+            - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+          icon:
+            - color: white
+            - filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))
+        style:
+          top: 65%
+          left: 62.5%
+          z-index: 2
+      - type: custom:button-card
+        icon: mdi:shuffle
+        tap_action:
+          action: call-service
+          service: media_player.shuffle_set
+          service_data:
+            entity_id: media_player.kitchen_2
+            shuffle: true
+        styles:
+          card:
+            - width: 70px
+            - height: 70px
+            - border-radius: 50%
+            - background: rgba(255, 255, 255, 0.1)
+            - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+          icon:
+            - color: white
+            - filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))
+        style:
+          top: 65%
+          left: 73.5%
+          z-index: 2
+      - type: custom:button-card
+        icon: mdi:volume-high
+        name: Volume
+        show_name: false
+        tap_action:
+          action: toggle
+          entity: input_boolean.show_volume_slider
+        styles:
+          card:
+            - width: 90px
+            - height: 90px
+            - border-radius: 50%
+            - background: rgba(255, 255, 255, 0.1)
+            - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+          icon:
+            - color: white
+            - filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))
+          name:
+            - font-size: 12px
+            - color: white
+        style:
+          top: 65%
+          left: 90%
+          z-index: 2
+      - type: conditional
+        conditions:
+          - entity: input_boolean.show_volume_slider
+            state: "on"
+        elements:
+          - type: custom:button-card
+            styles:
+              card:
+                - height: 300px
+                - width: 50px
+                - border-radius: 25px
+                - background: rgba(0, 0, 0, 0.1)
+                - box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3)
+                - position: absolute
+                - top: 1%
+                - left: 80%
+                - z-index: 2
+            custom_fields:
+              slider:
+                card:
+                  type: custom:my-slider-v2
+                  entity: media_player.kitchen_2
+                  attribute: volume_level
+                  vertical: true
+                  styles:
+                    card:
+                      - height: 300px
+                      - width: 50px
+                      - border-radius: 8px
+                      - background: rgba(255, 255, 255, 0.05)
+                      - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+                    track:
+                      - background: rgba(255, 255, 255, 0.05)
+                      - border-radius: 25px
+                    progress:
+                      - background: rgba(255, 255, 255, 0.8)
+                      - border-radius: 0px
+                      - height: 100%
+                    thumb:
+                      - background: transparent
+            style:
+              top: 30%
+              left: 87.5%
+              z-index: 2
+      - type: custom:button-card
+        name: |
+          [[[
+            const kitchen = states['media_player.kitchen'];
+            const move = states['media_player.move'];
+            if (kitchen.attributes.group_members?.includes('media_player.move')) {
+              return 'Arc+Move';
+            }
+            if (kitchen.state !== 'off') {
+              return 'Arc';
+            }
+            return 'None';
+          ]]]
+        icon: mdi:speaker-multiple
+        tap_action:
+          action: toggle
+          entity: input_boolean.show_player_selector
+        styles:
+          card:
+            - width: 90px
+            - height: 90px
+            - border-radius: 50%
+            - background: rgba(255, 255, 255, 0.1)
+            - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+          icon:
+            - color: white
+            - filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.5))
+            - padding: 0px
+            - align-self: center
+          name:
+            - font-size: 12px
+            - color: white
+            - position: relative
+            - top: "-8px"
+            - text-align: center
+            - justify-self: center
+        style:
+          top: 65%
+          left: 10%
+          z-index: 2
+      - type: conditional
+        conditions:
+          - entity: input_boolean.show_player_selector
+            state: "on"
+        elements:
+          - type: custom:hui-element
+            card_type: vertical-stack
+            cards:
+              - type: custom:button-card
+                icon: ""
+                name: Arc
+                tap_action:
+                  action: call-service
+                  service: media_player.unjoin
+                  service_data:
+                    entity_id: media_player.move
+                styles:
+                  card:
+                    - width: 80px
+                    - height: 80px
+                    - border-radius: 50%
+                    - margin-bottom: 15px
+                    - background: |
+                        [[[
+                          const kitchen = states['media_player.kitchen'];
+                          const groupMembers = kitchen.attributes.group_members || [];
+                          return groupMembers.includes('media_player.move')
+                            ? 'rgba(255, 255, 255, 0.1)'
+                            : 'rgba(255, 255, 255, 0.5)';
+                        ]]]
+                    - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+                  icon:
+                    - color: white
+                  name:
+                    - font-size: 14px
+                    - color: white
+              - type: custom:button-card
+                icon: ""
+                name: Arc+Move
+                tap_action:
+                  action: call-service
+                  service: media_player.join
+                  service_data:
+                    entity_id: media_player.kitchen
+                    group_members:
+                      - media_player.move
+                styles:
+                  card:
+                    - width: 80px
+                    - height: 80px
+                    - border-radius: 50%
+                    - background: |
+                        [[[
+                          const kitchen = states['media_player.kitchen'];
+                          const groupMembers = kitchen.attributes.group_members || [];
+                          return groupMembers.includes('media_player.move')
+                            ? 'rgba(255, 255, 255, 0.5)'
+                            : 'rgba(255, 255, 255, 0.1)';
+                        ]]]
+                    - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+                  icon:
+                    - color: white
+                  name:
+                    - font-size: 14px
+                    - color: white
+            style:
+              top: 49%
+              left: 10%
+              z-index: 2
+      - type: custom:button-card
+        name: Menu
+        icon: mdi:menu
+        show_name: false
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            command: call-service
+            service: |
+              [[[ 
+                if (states['input_boolean.show_menu'].state === 'off') {
+                  hass.callService('input_boolean', 'turn_on', { entity_id: 'input_boolean.show_menu' });
+                  hass.callService('input_select', 'select_option', { entity_id: 'input_select.music_assistant_menu', option: 'Search' });
+                } else {
+                  hass.callService('input_boolean', 'turn_off', { entity_id: 'input_boolean.show_menu' });
+                  hass.callService('input_select', 'select_option', { entity_id: 'input_select.music_assistant_menu', option: 'Default' });
+                }
+              ]]]
+        styles:
+          card:
+            - width: 50px
+            - height: 50px
+            - border-radius: 50%
+            - background: rgba(255, 255, 255, 0.1)
+            - box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5)
+          icon:
+            - color: |
+                [[[ 
+                  return states['input_boolean.show_menu'].state === 'on' ? '#6495ED' : 'darkgray';
+                ]]]
+        style:
+          top: 5%
+          left: 5%
+          z-index: 2
+      - type: conditional
+        conditions:
+          - entity: input_boolean.show_menu
+            state: "on"
+        elements:
+          - type: custom:hui-element
+            card_type: vertical-stack
+            cards:
+              - type: custom:button-card
+                name: Search
+                icon: mdi:magnify
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  service_data:
+                    entity_id: input_select.music_assistant_menu
+                    option: Search
+                styles:
+                  grid:
+                    - grid-template-areas: "\"i n\""
+                    - grid-template-columns: 40px 140px
+                  card:
+                    - width: 160px
+                    - height: 50px
+                    - display: grid
+                    - padding: 0
+                    - border-radius: 10px
+                    - background: none
+                    - box-shadow: none
+                    - align-items: center
+                  icon:
+                    - color: darkgray
+                    - width: 30px
+                    - height: 30px
+                    - justify-self: start
+                    - align-self: center
+                    - margin-left: 5px
+                  name:
+                    - font-size: 28px
+                    - font: encode_sans
+                    - font-weight: 400
+                    - color: lightgray
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - padding-left: 5px
+                    - justify-self: start
+                    - align-self: center
+              - type: custom:button-card
+                name: Playlists
+                icon: mdi:playlist-music
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  service_data:
+                    entity_id: input_select.music_assistant_menu
+                    option: Playlists
+                styles:
+                  grid:
+                    - grid-template-areas: "\"i n\""
+                    - grid-template-columns: 40px 140px
+                  card:
+                    - width: 160px
+                    - height: 50px
+                    - display: grid
+                    - padding: 0
+                    - border-radius: 10px
+                    - background: none
+                    - box-shadow: none
+                    - align-items: center
+                  icon:
+                    - color: darkgray
+                    - width: 30px
+                    - height: 30px
+                    - justify-self: start
+                    - align-self: center
+                    - margin-left: 5px
+                  name:
+                    - font-size: 28px
+                    - font: encode_sans
+                    - font-weight: 400
+                    - color: lightgray
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - padding-left: 5px
+                    - justify-self: start
+                    - align-self: center
+              - type: custom:button-card
+                name: Albums
+                icon: mdi:album
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  service_data:
+                    entity_id: input_select.music_assistant_menu
+                    option: Albums
+                styles:
+                  grid:
+                    - grid-template-areas: "\"i n\""
+                    - grid-template-columns: 40px 140px
+                  card:
+                    - width: 160px
+                    - height: 50px
+                    - display: grid
+                    - padding: 0
+                    - background: none
+                    - box-shadow: none
+                    - align-items: center
+                    - border-radius: 10px
+                  icon:
+                    - color: darkgray
+                    - width: 30px
+                    - height: 30px
+                    - justify-self: start
+                    - align-self: center
+                    - margin-left: 5px
+                  name:
+                    - font-size: 28px
+                    - font: encode_sans
+                    - font-weight: 400
+                    - color: lightgray
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - padding-left: 5px
+                    - justify-self: start
+                    - align-self: center
+              - type: custom:button-card
+                name: Artists
+                icon: mdi:account-music
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  service_data:
+                    entity_id: input_select.music_assistant_menu
+                    option: Artists
+                styles:
+                  grid:
+                    - grid-template-areas: "\"i n\""
+                    - grid-template-columns: 40px 140px
+                  card:
+                    - width: 160px
+                    - height: 50px
+                    - display: grid
+                    - padding: 0
+                    - border-radius: 10px
+                    - background: none
+                    - box-shadow: none
+                    - align-items: center
+                  icon:
+                    - color: darkgray
+                    - width: 30px
+                    - height: 30px
+                    - justify-self: start
+                    - align-self: center
+                    - margin-left: 5px
+                  name:
+                    - font-size: 28px
+                    - font: encode_sans
+                    - font-weight: 400
+                    - color: lightgray
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - padding-left: 5px
+                    - justify-self: start
+                    - align-self: center
+              - type: custom:button-card
+                name: Tracks
+                icon: mdi:music
+                tap_action:
+                  action: call-service
+                  service: input_select.select_option
+                  service_data:
+                    entity_id: input_select.music_assistant_menu
+                    option: Tracks
+                styles:
+                  grid:
+                    - grid-template-areas: "\"i n\""
+                    - grid-template-columns: 40px 140px
+                  card:
+                    - width: 160px
+                    - height: 50px
+                    - display: grid
+                    - padding: 0
+                    - border-radius: 10px
+                    - background: none
+                    - box-shadow: none
+                    - align-items: center
+                  icon:
+                    - color: darkgray
+                    - width: 30px
+                    - height: 30px
+                    - justify-self: start
+                    - align-self: center
+                    - margin-left: 5px
+                  name:
+                    - font-size: 28px
+                    - font: encode_sans
+                    - font-weight: 400
+                    - color: lightgray
+                    - text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7)
+                    - padding-left: 5px
+                    - justify-self: start
+                    - align-self: center
+            style:
+              top: 24%
+              left: 10%
+              z-index: 5
+      - type: custom:mini-media-player
+        entity: media_player.kitchen_2
+        hide:
+          icon: true
+          power: true
+          source: true
+          sound_mode: true
+          controls: true
+          volume: true
+          group: true
+          info: true
+          name: true
+          runtime: false
+          runtime_remaining: false
+          progress: false
+        card_mod:
+          style: |
+            ha-card {
+              --ha-card-background: transparent !important; 
+              width: 580px !important; 
+              height: 70px !important; 
+              box-shadow: none !important; 
+            }
+            .mmp-player-progress {
+              height: 40px !important; 
+            }
+            mini-media-player-progress-height: 15px !important;
+            }
+            .mmp-progress {
+              background: linear-gradient(to right, #4caf50, #81c784) !important; 
+            }
+            .mmp-progress__container {
+              border-radius: 5px !important; 
+            }
+        style:
+          top: 55%
+          left: 50%
+          z-index: 2

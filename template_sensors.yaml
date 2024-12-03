@@ -9,14 +9,4 @@
         {% else %}
           move_left
         {% endif %}
-        
-## sensor to determine if speaker selector is on or off ##
-
-- sensor:
-    - name: "album_artwork_position"
-      state: >
-        {% if is_state('input_boolean.show_player_selector', 'on') %}
-          right
-        {% else %}
-          left
-        {% endif %}
+    

@@ -1,0 +1,22 @@
+## sensor to determine the and/or state of the on position for 2 input booleans for the media panel ##
+
+- sensor:
+    - name: "UI Movement State"
+      unique_id: "ui_movement_state_sensor"
+      state: >
+        {% if is_state('input_boolean.show_menu', 'on') or is_state('input_boolean.show_player_selector', 'on') %}
+          move_right
+        {% else %}
+          move_left
+        {% endif %}
+        
+## sensor to determine if speaker selector is on or off ##
+
+- sensor:
+    - name: "album_artwork_position"
+      state: >
+        {% if is_state('input_boolean.show_player_selector', 'on') %}
+          right
+        {% else %}
+          left
+        {% endif %}
